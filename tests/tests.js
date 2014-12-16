@@ -7,7 +7,7 @@ var uidModule = 'uid-objects',
 
 //////// Compatibility   /////
 if(!require.isBrowser) {
-    var require = require("amdrequire");
+    require = require("amdrequire");
     require(__dirname + '\\' + '..\\' + uidModule + '.js');
 } else {
     var paths = {};
