@@ -2,7 +2,7 @@
  * Created by LinkFly-user on 14.12.2014.
  */
 ///////////// Config ///////////
-var uidModule = 'uid',
+var uidModule = 'uid-objects',
     uidFile = '../' + uidModule;
 
 //////// Compatibility   /////
@@ -10,14 +10,17 @@ if(!require.isBrowser) {
     var require = require("amdrequire");
     require(__dirname + '\\' + '..\\' + uidModule + '.js');
 } else {
+    var paths = {};
+    paths[uidModule] = uidFile;
     require.config({
-        paths: {uid: uidFile}
+        paths: paths
     })
     uidFile = uidModule;
 }
 ///////////////////////////////
 
 require([uidFile], function(uid) {
+
     test("Test uid", function (assert) {
         uid.setUidProp("_$uid");
         uid.setStartUid(101);
@@ -38,3 +41,4 @@ require([uidFile], function(uid) {
         }
     });
 });
+

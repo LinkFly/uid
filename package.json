@@ -1,7 +1,7 @@
 {
-  "name": "uid",
+  "name": "uid-objects",
   "version": "0.0.1",
-  "main": "uid.js",
+  "main": "uid-objects.js",
   "dependencies": {
     "qunit": "0.7.5",
     "amdefine": "0.1.0",
