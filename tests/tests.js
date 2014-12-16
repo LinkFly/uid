@@ -1,31 +1,22 @@
 /**
  * Created by LinkFly-user on 14.12.2014.
  */
-
 ///////////// Config ///////////
-var uidFile = 'uid';
+var uidModule = 'uid',
+    uidFile = '../' + uidModule;
 
-    ///// Node.js config //////
+//////// Compatibility   /////
 if(!require.isBrowser) {
-    var nodejs_modules_dir = "C:/Program Files (x86)/nodejs/node_modules/";
-//C:/data-from-d/my-js-libs/uid/uid.js
-    var uidFile = __dirname + '\\' + uidFile + '.js';
-
-    var getModuleDir = function(module_name) {
-        return nodejs_modules_dir + module_name + "/";
-    };}
-    //////////////////////////
-
-//////// Compatibility
-if (!require.isBrowser) {
-    //var requirejs = require("C:/Program Files (x86)/nodejs/node_modules/requirejs/");
-    //var reqjs = require("C:/Program Files (x86)/nodejs/node_modules/r/");
-    var require = require(getModuleDir("amdrequire"));
-    require(uidFile);
+    var require = require("amdrequire");
+    require(__dirname + '\\' + '..\\' + uidModule + '.js');
+} else {
+    require.config({
+        paths: {uid: uidFile}
+    })
+    uidFile = uidModule;
 }
+///////////////////////////////
 
-////////////////// Config ///////////////////
-///////////////////////////////////////////////
 require([uidFile], function(uid) {
     test("Test uid", function (assert) {
         uid.setUidProp("_$uid");

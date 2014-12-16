@@ -39,6 +39,10 @@
     if(module)
         module.exports = Uid;
 
+    if (!require.isBrowser)
+        //define = require("C:/Program Files (x86)/nodejs/node_modules/amdefine/")(module);
+        define = require("amdefine")(module);
+
     define("uid", [], function () {
         return Uid;
     });
