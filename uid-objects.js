@@ -2,6 +2,7 @@
  * Created by LinkFly-user on 13.12.2014.
  */
 (function(module) {
+    'use strict';
     var startUID = 0;
     var uidProp;
 
